@@ -22,7 +22,7 @@ $ node decode_game_master.js GAME_MASTER/0000015A62513FDA_GAME_MASTER > game_mas
 
 ## 4. Extract GAME_MASTER.json into CSV files
 ```
-$ ./extract_game_master.sh game_master.json CSV_OUTPUT
+$ ./extract_game_master.sh game_master.json
 ```
 
 ## 5. Import CSV into PostgreSQL
