@@ -27,7 +27,7 @@ $ ./extract_game_master.sh game_master.json CSV_OUTPUT
 
 ## 5. Import CSV into PostgreSQL
 ```
-$ ./import_game_master.sh POKEMON CSV_OUTPUT "psql postgres"
+$ ./import_game_master.sh POKEMON . "psql postgres"
 ```
 
 ## 6. Do any query you want
