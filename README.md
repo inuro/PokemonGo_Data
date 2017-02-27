@@ -24,3 +24,9 @@ $ node decode_game_master.js GAME_MASTER/0000015A62513FDA_GAME_MASTER > game_mas
 $ ./extract_game_master.sh game_master.json CSV_OUTPUT
 ```
 
+## 5. Import CSV into PostgreSQL
+```
+$ ./import_game_master.sh POKEMON CSV_OUTPUT "psql postgres"
+```
+
+## 6. Do any query you want
