@@ -2,16 +2,15 @@
 # Extract GAME_MASTER.json(converted from Protobuf binary) into CSV file for SQL import
 #
 # [usage]
-# $ ./extract_game_master.sh game_master.json CSV_OUTPUT
+# $ extract_game_master.sh <GAME_MASTER_JSON>
+# $ ./extract_game_master.sh game_master.json
 
 LOCALFILE=$1
-OUTPUTDIR=$2
-[ $# -ne 2 ] && echo "[usage] $ extract_game_master.sh <game_master.json> <output_dir>" && exit 1
-
-
+#OUTPUTDIR=$2
+OUTPUTDIR=CSV_OUTPUT
+[ $# -ne 1 ] && echo "[usage] $ extract_game_master.sh <game_master.json>" && exit 1
 echo "Source file: ${LOCALFILE}"
 echo "Output dir: ${OUTPUTDIR}"
-
 
 
 # Pokemon data
