@@ -12,6 +12,7 @@ Latest file(@02/25/2017) is 0000015A62513FDA_GAME_MASTER
 ## 2. Setup environment
 Requirement:
 - Node.js ( https://nodejs.org )
+- jq ( https://stedolan.github.io/jq/ )
 - ProtoBuf.js ( https://github.com/dcodeIO/ProtoBuf.js )
 
 ## 3. Decode GAME_MASTER file into JSON
