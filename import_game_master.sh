@@ -1,39 +1,41 @@
 #!/bin/bash
 #
 # [usage]
-# $ ./import_game_master.sh <target_schema> <csv_dir> <psql_command>
+# $ ./import_game_master.sh <target_schema> <working_dir> <psql_command>
 #
-# $ ./import_game_master.sh POKEMON CSV_OUTPUT "psql postgres"
+# $ ./import_game_master.sh POKEMON . "psql postgres"
 
 SCHEMA=$1
-CSV_DIR=$2
+WORKING_DIR=$2
 PSQL_COMMAND=$3
-[ $# -ne 3 ] && echo "[usage] $ import_game_master.sh <target_schema> <csv_dir> <psql_command>" && exit 1
+[ $# -ne 3 ] && echo "[usage] $ import_game_master.sh <target_schema> <WORKING_DIR> <psql_command>" && exit 1
 echo "Target schema: ${SCHEMA}"
 
-STATIC_DIR="CSV_STATIC"
+CSV_OUTPUT_DIR="CSV_OUTPUT"
+CSV_STATIC_DIR="CSV_STATIC"
+
 
 
 # define source files
-POKEMON_FILE="${CSV_DIR}/pokemon.csv"
-TYPE_FILE="${CSV_DIR}/type.csv"
-MULTIPLIER_FILE="${CSV_DIR}/multiplier.csv"
-FASTMOVE_FILE="${CSV_DIR}/fastmove.csv"
-CHARGEMOVE_FILE="${CSV_DIR}/chargemove.csv"
-POKEMON_TO_FASTMOVE_20170216_FILE="${CSV_DIR}/pokemon_to_fastmove_2017-02-16.csv"
-POKEMON_TO_CHARGEMOVE_20170216_FILE="${CSV_DIR}/pokemon_to_chargemove_2017-02-16.csv"
+POKEMON_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/pokemon.csv"
+TYPE_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/type.csv"
+MULTIPLIER_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/multiplier.csv"
+FASTMOVE_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/fastmove.csv"
+CHARGEMOVE_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/chargemove.csv"
+POKEMON_TO_FASTMOVE_20170216_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/pokemon_to_fastmove_2017-02-16.csv"
+POKEMON_TO_CHARGEMOVE_20170216_FILE="${WORKING_DIR}/${CSV_OUTPUT_DIR}/pokemon_to_chargemove_2017-02-16.csv"
 #legacy moves
-POKEMON_TO_FASTMOVE_20160706_FILE="${STATIC_DIR}/pokemon_to_fastmove_2016-07-06.csv"
-POKEMON_TO_CHARGEMOVE_20160706_FILE="${STATIC_DIR}/pokemon_to_chargemove_2016-07-06.csv"
-POKEMON_TO_FASTMOVE_20160819_FILE="${STATIC_DIR}/pokemon_to_fastmove_2016-08-19.csv"
-POKEMON_TO_CHARGEMOVE_20160819_FILE="${STATIC_DIR}/pokemon_to_chargemove_2016-08-19.csv"
+POKEMON_TO_FASTMOVE_20160706_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/pokemon_to_fastmove_2016-07-06.csv"
+POKEMON_TO_CHARGEMOVE_20160706_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/pokemon_to_chargemove_2016-07-06.csv"
+POKEMON_TO_FASTMOVE_20160819_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/pokemon_to_fastmove_2016-08-19.csv"
+POKEMON_TO_CHARGEMOVE_20160819_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/pokemon_to_chargemove_2016-08-19.csv"
 #other static files
-FASTMOVE_OLD_TO_NEW_FILE="${STATIC_DIR}/fastmove_old_to_new.csv"
-CHARGEMOVE_OLD_TO_NEW_FILE="${STATIC_DIR}/chargemove_old_to_new.csv"
-LOCALIZE_FASTMOVE_FILE="${STATIC_DIR}/localize_fastmove.csv"
-LOCALIZE_CHARGEMOVE_FILE="${STATIC_DIR}/localize_chargemove.csv"
-LOCALIZE_TYPE_FILE="${STATIC_DIR}/localize_type.csv"
-LOCALIZE_POKEMON_FILE="${STATIC_DIR}/localize_pokemon.csv"
+FASTMOVE_OLD_TO_NEW_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/fastmove_old_to_new.csv"
+CHARGEMOVE_OLD_TO_NEW_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/chargemove_old_to_new.csv"
+LOCALIZE_FASTMOVE_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/localize_fastmove.csv"
+LOCALIZE_CHARGEMOVE_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/localize_chargemove.csv"
+LOCALIZE_TYPE_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/localize_type.csv"
+LOCALIZE_POKEMON_FILE="${WORKING_DIR}/${CSV_STATIC_DIR}/localize_pokemon.csv"
 
 # define tables
 POKEMON_TABLE="${SCHEMA}.pokemon"
