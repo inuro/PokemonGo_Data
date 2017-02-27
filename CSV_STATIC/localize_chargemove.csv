@@ -1,0 +1,119 @@
+id,codename,en,jp
+45,AERIAL_ACE,Aerial Ace,つばめがえし
+121,AIR_CUTTER,Air Cutter,エアカッター
+62,ANCIENT_POWER,Ancient Power,げんしのちから
+57,AQUA_JET,Aqua Jet,アクアジェット
+58,AQUA_TAIL,Aqua Tail,アクアテール
+248,AURORA_BEAM,Aurora Beam,オーロラビーム
+254,AVALANCHE,Avalanche,ゆきなだれ
+40,BLIZZARD,Blizzard,ふぶき
+131,BODY_SLAM,Body Slam,のしかかり
+94,BONE_CLUB,Bone Club,ホネこんぼう
+256,BRAVE_BIRD,Brave Bird,ブレイブバード
+123,BRICK_BREAK,Brick Break,かわらわり
+104,BRINE,Brine,しおみず
+53,BUBBLE_BEAM,Bubble Beam,バブルこうせん
+49,BUG_BUZZ,Bug Buzz,むしのさざめき
+95,BULLDOZE,Bulldoze,じならし
+245,CLOSE_COMBAT,Close Combat,インファイト
+28,CROSS_CHOP,Cross Chop,クロスチョップ
+89,CROSS_POISON,Cross Poison,クロスポイズン
+279,CRUNCH,Crunch,かみくだく
+16,DARK_PULSE,Dark Pulse,あくのはどう
+86,DAZZLING_GLEAM,Dazzling Gleam,マジカルシャイン
+26,DIG,Dig,あなをほる
+84,DISARMING_VOICE,Disarming Voice,チャームボイス
+35,DISCHARGE,Discharge,ほうでん
+83,DRAGON_CLAW,Dragon Claw,ドラゴンクロー
+82,DRAGON_PULSE,Dragon Pulse,りゅうのはどう
+85,DRAINING_KISS,Draining Kiss,ドレインキッス
+38,DRILL_PECK,Drill Peck,ドリルくちばし
+46,DRILL_RUN,Drill Run,ドリルライナー
+246,DYNAMIC_PUNCH,Dynamic Punch,ばくれつパンチ
+31,EARTHQUAKE,Earthquake,じしん
+273,ENERGY_BALL,Energy Ball,エナジーボール
+103,FIRE_BLAST,Fire Blast,だいもんじ
+115,FIRE_PUNCH,Fire Punch,ほのおのパンチ
+102,FLAME_BURST,Flame Burst,はじけるほのお
+101,FLAME_CHARGE,Flame Charge,ニトロチャージ
+24,FLAMETHROWER,Flamethrower,かえんほうしゃ
+21,FLAME_WHEEL,Flame Wheel,かえんぐるま
+36,FLASH_CANNON,Flash Cannon,ラスターカノン
+247,FOCUS_BLAST,Focus Blast,きあいだま
+280,FOUL_PLAY,Foul Play,イカサマ
+275,FUTURESIGHT,Future Sight,みらいよち
+114,GIGA_DRAIN,Giga Drain,ギガドレイン
+272,GRASS_KNOT,Grass Knot,くさむすび
+92,GUNK_SHOT,Gunk Shot,ダストシュート
+267,GYRO_BALL,Gyro Ball,ジャイロボール
+34,HEART_STAMP,Heart Stamp,ハートスタンプ
+42,HEAT_WAVE,Heat Wave,ねっぷう
+268,HEAVY_SLAM,Heavy Slam,ヘビーボンバー
+126,HORN_ATTACK,Horn Attack,つのでつく
+122,HURRICANE,Hurricane,ぼうふう
+107,HYDRO_PUMP,Hydro Pump,ハイドロポンプ
+135,HYDRO_PUMP_BLASTOISE,Hydro Pump(Blastoise),ハイドロポンプ（カメックス）
+14,HYPER_BEAM,Hyper Beam,はかいこうせん
+129,HYPER_FANG,Hyper Fang,ひっさつまえば
+39,ICE_BEAM,Ice Beam,れいとうビーム
+33,ICE_PUNCH,Ice Punch,れいとうパンチ
+111,ICY_WIND,Icy Wind,こごえるかぜ
+74,IRON_HEAD,Iron Head,アイアンヘッド
+117,LEAF_BLADE,Leaf Blade,リーフブレード
+56,LOW_SWEEP,Low Sweep,ローキック
+72,MAGNET_BOMB,Magnet Bomb,マグネットボム
+48,MEGA_DRAIN,Mega Drain,メガドレイン
+22,MEGAHORN,Megahorn,メガホーン
+276,MIRROR_COAT,Mirror Coat,ミラーコート
+87,MOONBLAST,Moonblast,ムーンフォース
+96,MUD_BOMB,Mud Bomb,どろばくだん
+265,NIGHT_SHADE,Night Shade,ナイトヘッド
+51,NIGHT_SLASH,Night Slash,つじぎり
+69,OMINOUS_WIND,Ominous Wind,あやしいかぜ
+277,OUTRAGE,Outrage,げきりん
+270,OVERHEAT,Overheat,オーバーヒート
+75,PARABOLIC_CHARGE,Parabolic Charge,パラボラチャージ
+47,PETAL_BLIZZARD,Petal Blizzard,はなふぶき
+88,PLAY_ROUGH,Play Rough,じゃれつく
+50,POISON_FANG,Poison Fang,どくどくのキバ
+65,POWER_GEM,Power Gem,パワージェム
+118,POWER_WHIP,Power Whip,パワーウィップ
+30,PSYBEAM,Psybeam,サイケこうせん
+108,PSYCHIC,Psychic,サイコキネシス
+60,PSYSHOCK,Physhock,サイコショック
+109,PSYSTRIKE,Psystrike,サイコブレイク
+132,REST,Rest,ねむる
+259,ROCK_BLAST,Rock Blast,ロックブラスト
+64,ROCK_SLIDE,Rock Slide,いわなだれ
+63,ROCK_TOMB,Rock Tomb,がんせきふうじ
+258,SAND_TOMB,Sand Tomb,すなじごく
+106,SCALD,Scald,ねっとう
+134,SCALD_BLASTOISE,Scald(Blastoise),ねっとう（カメックス）
+59,SEED_BOMB,Seed Bomb,タネばくだん
+70,SHADOW_BALL,Shadow Ball,シャドーボール
+67,SHADOW_PUNCH,Shadow Punch,シャドーパンチ
+66,SHADOW_SNEAK,Shadow Sneak,かげうち
+99,SIGNAL_BEAM,Signal Beam,シグナルビーム
+262,SILVER_WIND,Silver Wind,ぎんいろのかぜ
+257,SKY_ATTACK,Sky Attack,ゴッドバード
+18,SLUDGE,Sludge,ヘドロこうげき
+90,SLUDGE_BOMB,Sludge Bomb,ヘドロばくだん
+91,SLUDGE_WAVE,Sludge Wave,ヘドロウェーブ
+116,SOLAR_BEAM,Solar Beam,ソーラービーム
+127,STOMP,Stomp,ふみつけ
+32,STONE_EDGE,Stone Edge,ストーンエッジ
+133,STRUGGLE,Struggle,わるあがき
+54,SUBMISSION,Submission,じごくぐるま
+125,SWIFT,Swift,スピードスター
+78,THUNDER,Thunder,かみなり
+79,THUNDERBOLT,Thunderbolt,１０まんボルト
+77,THUNDER_PUNCH,Thunder Punch,かみなりパンチ
+80,TWISTER,Twister,たつまき
+20,VICE_GRIP,Vice Grip,はさむ
+105,WATER_PULSE,Water Pulse,みずのはどう
+251,WILD_CHARGE,Wild Charge,ワイルドボルト
+13,WRAP,Wrap,まきつく
+136,WRAP_GREEN,Wrap(Green),まきつく（みどり）
+137,WRAP_PINK,Wrap(Pink),まきつく（ピンク）
+100,X_SCISSOR,X Scissor,シザークロス
+252,ZAP_CANNON,Zap Cannon,でんじほう

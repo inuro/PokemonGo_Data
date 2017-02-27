@@ -38,31 +38,31 @@ jq -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 
 # Pokemon->Quickmove data(current)
 # [header]
-# pokemonId,move_id,legacy_flag(null)
-POKEMON_TO_FASTMOVE_FILE="${OUTPUTDIR}/pokemon_to_fastmove.csv"
+# pokemonId,move_id,version(date)
+POKEMON_TO_FASTMOVE_FILE="${OUTPUTDIR}/pokemon_to_fastmove_2017-02-16.csv"
 echo "Pokemon to Fastmove(current): ${POKEMON_TO_FASTMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
+jq -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 .pokemonSettings.pokemonId as $id |
 (.templateId | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemonSettings.quickMoves[] | [$id, . , false]
-'| sed -E 's/^\[//g' | sed -E 's/\]$//g' > ${POKEMON_TO_FASTMOVE_FILE}
+.pokemonSettings.quickMoves[] | [$id, ., "2017-02-16"]
+'| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_FASTMOVE_FILE}
 
 
 
 # Pokemon->Chargemove data(current)
 # [header]
-# pokemonId,move_id,legacy_flag(null)
-POKEMON_TO_CHARGEMOVE_FILE="${OUTPUTDIR}/pokemon_to_chargemove.csv"
+# pokemonId,move_id,version(date)
+POKEMON_TO_CHARGEMOVE_FILE="${OUTPUTDIR}/pokemon_to_chargemove_2017-02-16.csv"
 echo "Pokemon to Chargemove(current): ${POKEMON_TO_CHARGEMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
+jq -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 .pokemonSettings.pokemonId as $id |
 (.templateId | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemonSettings.cinematicMoves[] | [$id, . , false]
-'| sed -E 's/^\[//g' | sed -E 's/\]$//g' > ${POKEMON_TO_CHARGEMOVE_FILE}
+.pokemonSettings.cinematicMoves[] | [$id, ., "2017-02-16"]
+'| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_CHARGEMOVE_FILE}
 
 
 
