@@ -3,7 +3,7 @@
 # search strongest pokemon against target pokemon
 # [usage]
 # $ pokemon_ranking.sh [-l limit] [-t target_pokemon_name_jp] [-c challenger_pokemon_name_jp]
-# $ ./ pokemon_ranking.sh -l 40 -t カイリュー -c シャワーズ
+# $ ./pokemon_ranking.sh -l 40 -t カイリュー -c シャワーズ
 
 # please modify psql command for your environment
 PSQL_COMMAND='psql postgres'
@@ -120,8 +120,8 @@ select
 , Round((((ME_FASTMOVE.firepower / ME_FASTMOVE.duration) * ME_CHARGEMOVE.energy_cost::numeric / (ME_FASTMOVE.energy_gain::numeric / ME_FASTMOVE.duration) +  ME_CHARGEMOVE.firepower))::numeric, 2) as dmg_1cycle
 
 
-, (FAST_MP_1.multiplier * (case when YOU.type2 is null then 1 else FAST_MP_2.multiplier end))  as MP_FAST
-, (CHARGE_MP_1.multiplier * (case when YOU.type2 is null then 1 else CHARGE_MP_2.multiplier end))  as MP_CHARGE
+, (FAST_MP_1.multiplier * (case when YOU.type2 is null then 1 else FAST_MP_2.multiplier end))::numeric  as MP_FAST
+, (CHARGE_MP_1.multiplier * (case when YOU.type2 is null then 1 else CHARGE_MP_2.multiplier end))::numeric  as MP_CHARGE
 
 , Round(
   (

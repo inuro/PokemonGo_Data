@@ -145,6 +145,6 @@ join(
   ) T1
 ) T2 on true
 WHERE true
---AND Q2.name='ラプラス'
-AND (Q2.type1='こおり' or Q2.type2='こおり')
+--AND Q2.name='ウインディ'
+--AND (Q2.type1='こおり' or Q2.type2='こおり')
 order by Q2.true_dps desc;
