@@ -2,15 +2,26 @@
 # Extract GAME_MASTER.json(converted from Protobuf binary) into CSV file for SQL import
 #
 # [usage]
-# $ extract_game_master.sh <GAME_MASTER_JSON>
-# $ ./extract_game_master.sh game_master.json
+# $ extract_game_master.sh <GAME_MASTER_JSON> <version>
+# $ ./extract_game_master.sh game_master.json 2017-02-16
 
 LOCALFILE=$1
+VERSION=$2
 #OUTPUTDIR=$2
-OUTPUTDIR=CSV_OUTPUT
-[ $# -ne 1 ] && echo "[usage] $ extract_game_master.sh <game_master.json>" && exit 1
+
+[ $# -ne 2 ] && echo "[usage] $ extract_game_master.sh <game_master.json> <version>" && exit 1
+
+OUTPUTDIR="CSV_OUTPUT/${VERSION}"
+if [ -e $OUTPUTDIR ]; then
+  rm -r $OUTPUTDIR
+fi
+mkdir $OUTPUTDIR
+
 echo "Source file: ${LOCALFILE}"
 echo "Output dir: ${OUTPUTDIR}"
+
+
+
 
 
 # Pokemon data
@@ -38,14 +49,14 @@ jq -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 # Pokemon->Quickmove data(current)
 # [header]
 # pokemonId,move_id,version(date)
-POKEMON_TO_FASTMOVE_FILE="${OUTPUTDIR}/pokemon_to_fastmove_2017-02-16.csv"
+POKEMON_TO_FASTMOVE_FILE="${OUTPUTDIR}/pokemon_to_fastmove_${VERSION}.csv"
 echo "Pokemon to Fastmove(current): ${POKEMON_TO_FASTMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
+jq --arg version "$VERSION" -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 .pokemonSettings.pokemonId as $id |
 (.templateId | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemonSettings.quickMoves[] | [$id, ., "2017-02-16"]
+.pokemonSettings.quickMoves[] | [$id, ., $version]
 '| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_FASTMOVE_FILE}
 
 
@@ -53,14 +64,14 @@ jq -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 # Pokemon->Chargemove data(current)
 # [header]
 # pokemonId,move_id,version(date)
-POKEMON_TO_CHARGEMOVE_FILE="${OUTPUTDIR}/pokemon_to_chargemove_2017-02-16.csv"
+POKEMON_TO_CHARGEMOVE_FILE="${OUTPUTDIR}/pokemon_to_chargemove_${VERSION}.csv"
 echo "Pokemon to Chargemove(current): ${POKEMON_TO_CHARGEMOVE_FILE}"
 
 cat ${LOCALFILE} |
-jq -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
+jq --arg version "$VERSION" -r -c '.itemTemplates[] | select(.templateId | test("^V[0-9]+_POKEMON_")) |
 .pokemonSettings.pokemonId as $id |
 (.templateId | capture("^V[0-9]+_POKEMON_(?<name>.+)$").name) as $name |
-.pokemonSettings.cinematicMoves[] | [$id, ., "2017-02-16"]
+.pokemonSettings.cinematicMoves[] | [$id, ., $version]
 '| sed -E 's/^\[//g' | sed -E 's/\]$//g' | sed -E 's/"//g' > ${POKEMON_TO_CHARGEMOVE_FILE}
 
 
@@ -134,3 +145,14 @@ jq -c '.itemTemplates[] | select(.templateId | test("^POKEMON_TYPE_")) |
 .typeEffective.attackType as $id |
 .typeEffective.attackScalar | to_entries[] |
 [$id, .key+1, .value]' | sed -E 's/^\[//g' | sed -E 's/\]$//g' > ${MULTIPLIER_FILE}
+
+
+# CP multiplier
+# [header]
+# lv,multiplier
+CP_MULTIPLIER_FILE="${OUTPUTDIR}/cp_multiplier.csv"
+echo "CP_Multiplier: ${CP_MULTIPLIER_FILE}"
+
+cat ${LOCALFILE} |
+jq -c '.itemTemplates[] | select(.templateId | test("^PLAYER_LEVEL_SETTINGS")) |
+.playerLevel.cpMultiplier | to_entries[] | [.key+1, .value]' | sed -E 's/^\[//g' | sed -E 's/\]$//g' > ${CP_MULTIPLIER_FILE}

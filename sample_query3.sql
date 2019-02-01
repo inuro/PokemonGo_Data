@@ -1,3 +1,8 @@
+/*
+  target specified ranking
+
+*/
+
 select
   Q2.rank
 , ROUND((Q2.true_dps - T2.AVRG) / T2.STDRD * 10 + 50, 1) as T

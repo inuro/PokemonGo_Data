@@ -18,17 +18,23 @@ const original_game_master_file = process.argv[2] || "GAME_MASTER/0000015A62513F
 console.error(`Parse GAME_MASTER file:${original_game_master_file}`);
 
 const fs = require('fs');
+const path = require('path');
 const protobuf = require("protobufjs");
 
-protobuf.load("POGOProtos/Networking/Responses/DownloadItemTemplatesResponse.proto")
-.then(function(root) {
-  const DownloadItemTemplatesResponse = root.lookup("POGOProtos.Networking.Responses.DownloadItemTemplatesResponse");
-  const data = fs.readFileSync(original_game_master_file);
-  const buffer = Buffer(data);
-//  console.log(buffer.toString());
-  const msg = DownloadItemTemplatesResponse.decode(buffer);
-  const obj = msg.toObject();
-//  console.log(JSON.stringify(msg, null, 4))
-  console.log(JSON.stringify(obj, null, 4));
-
+//protobuf.load("POGOProtos/Networking/Responses/DownloadItemTemplatesResponse.proto")
+protobuf.load({file:"POGOProtos/Networking/Responses/DownloadItemTemplatesResponse.proto", root:path.resolve(".")}, function(err, root) {
+  if (err){
+    console.log("error");
+    console.log(err.message);
+    //throw err;
+  }else{
+    const DownloadItemTemplatesResponse = root.lookup("POGOProtos.Networking.Responses.DownloadItemTemplatesResponse");
+    const data = fs.readFileSync(original_game_master_file);
+    const buffer = Buffer(data);
+  //  console.log(buffer.toString());
+    const msg = DownloadItemTemplatesResponse.decode(buffer);
+    const obj = msg.toObject();
+  //  console.log(JSON.stringify(msg, null, 4))
+    console.log(JSON.stringify(obj, null, 4));
+  }
 });
